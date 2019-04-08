@@ -1,0 +1,57 @@
+---
+title: "Pokemon BMI (Q1 2019)"
+subtitle: "(Un)official Statistics"
+author: "Matt Dray"
+date: "`r Sys.time()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+filter_n <- 40
+
+library("tidyverse")
+library("knitr")
+library("tools")
+library("Rokemon")
+
+pkmn <- read_csv(file = "data/pogo.csv") %>% 
+  mutate(bmi = weight_kg/height_m) %>% 
+  group_by(species) %>%
+  summarise(count = n(), mean_bmi = mean(bmi)) %>%
+  arrange(desc(mean_bmi)) %>% 
+  filter(count > filter_n)
+```
+
+![Me playing Pokemon Go ([via Giphy](https://giphy.com/gifs/pokemon-pokemongo-lookhuman-l0MYyWeUGYVl5iA8w))](https://media.giphy.com/media/l0MYyWeUGYVl5iA8w/giphy.gif){width=200}
+
+# Very important table
+
+This is some text written in markdown to demonstrate the power of writing a script that can be re-run in future to reproduce an output document.
+
+This table shows the mean body mass index (BMI) for Pokemon that appear over `r filter_n` times in the dataset.
+
+```{r table, echo=FALSE}
+pkmn %>% 
+  mutate(
+    species = toTitleCase(species),
+    mean_bmi = round(mean_bmi, 1)
+  ) %>% 
+  rename(Species = species, Count = count, `Mean BMI` = mean_bmi) %>%
+  kable()
+```
+
+# Very important plot
+
+Good grief, this plot truly tells a very exciting story. I cannot belive my eyes.
+
+```{r plot, echo=FALSE}
+pkmn %>%
+  filter(count > filter_n) %>%
+  gghealth("species", "mean_bmi") +
+  labs(
+    x = "", y = "BMI",
+    title = "Pokemon BMI",
+    subtitle = "Where n > 30",
+    caption = "Pokemon Go belongs to Niantic and Nintendo"
+  )
+```

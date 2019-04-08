@@ -37,3 +37,4 @@ vignettes/*.pdf
 
 # DS_Store, dammit
 .DS_Store
+.Rproj.user
