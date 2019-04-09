@@ -26,7 +26,7 @@ pkmn <- read_csv(file = "data/pogo.csv") %>%
 
 # Very important table
 
-This is some text written in markdown to demonstrate the power of writing a script that can be re-run in future to reproduce an output document.
+This is some text written in R Markdown to demonstrate the power of writing a script that can be re-run in future to reproduce an output document.
 
 This table shows the mean body mass index (BMI) for Pokemon that appear over `r filter_n` times in the dataset.
 
@@ -51,7 +51,7 @@ pkmn %>%
   labs(
     x = "", y = "BMI",
     title = "Pokemon BMI",
-    subtitle = "How is this a thing",
+    subtitle = "How is this a thing?",
     caption = "Credit: The Pokemon Company/Niantic"
   )
 ```
