@@ -122,7 +122,7 @@ pkmn_bmi_type %>%
     title = "Drowzee has the largest median BMI",
     subtitle = "Pidgey, Rattata and Spearow have small ranges",
     x = "Species", y = "Body Mass Index (BMI)",
-    caption = "Pokemon Go belongs to Niantic and Nintendo"
+    caption = "The Pokemon Company and Niantic own Pokemon/Pokemon Go"
   ) +
   theme_classic()  # one of many types of theme
 
@@ -141,5 +141,6 @@ pkmn_bmi_mean %>%
   labs(  # add labels
     x = "", y = "BMI",
     title = "Pokemon BMI",
-    subtitle = "Where n > 30"
+    subtitle = "Where n > 30",
+    caption = "Credit: The Pokemon Company/Niantic"
   )

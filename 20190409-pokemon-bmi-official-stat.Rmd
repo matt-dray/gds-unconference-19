@@ -7,7 +7,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
-filter_n <- 40
+filter_n <- 20
 
 library("tidyverse")
 library("knitr")
@@ -52,6 +52,6 @@ pkmn %>%
     x = "", y = "BMI",
     title = "Pokemon BMI",
     subtitle = "Where n > 30",
-    caption = "Pokemon Go belongs to Niantic and Nintendo"
+    caption = "Credit: The Pokemon Company/Niantic"
   )
 ```
