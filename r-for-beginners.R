@@ -119,8 +119,8 @@ pkmn_bmi_type %>%
   geom_violin(alpha = 0) +  # see-through violin plot
   stat_summary(fun.y = "median", geom = "point") +  # add median point
   labs(  # add labels
-    title = "Drowzee has the largest median BMI",
-    subtitle = "Pidgey, Rattata and Spearow have small ranges",
+    title = "Rattata has the largest median BMI",
+    subtitle = "Pidgey and Spearow have lower mean BMI",
     x = "Species", y = "Body Mass Index (BMI)",
     caption = "The Pokemon Company and Niantic own Pokemon/Pokemon Go"
   ) +
@@ -141,6 +141,6 @@ pkmn_bmi_mean %>%
   labs(  # add labels
     x = "", y = "BMI",
     title = "Pokemon BMI",
-    subtitle = "Where n > 30",
+    subtitle = "How is this a thing?",
     caption = "Credit: The Pokemon Company/Niantic"
   )

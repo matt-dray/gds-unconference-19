@@ -15,7 +15,7 @@ library("tools")
 library("Rokemon")
 
 pkmn <- read_csv(file = "data/pogo.csv") %>% 
-  mutate(bmi = weight_kg/height_m) %>% 
+  mutate(bmi = weight_kg/(height_m^2)) %>% 
   group_by(species) %>%
   summarise(count = n(), mean_bmi = mean(bmi)) %>%
   arrange(desc(mean_bmi)) %>% 
@@ -51,7 +51,7 @@ pkmn %>%
   labs(
     x = "", y = "BMI",
     title = "Pokemon BMI",
-    subtitle = "Where n > 30",
+    subtitle = "How is this a thing",
     caption = "Credit: The Pokemon Company/Niantic"
   )
 ```
